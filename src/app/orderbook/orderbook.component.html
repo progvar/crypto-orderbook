@@ -1,0 +1,32 @@
+<header>
+    <h1 id="title">XBT/USD futures orderbook</h1>
+</header>
+
+<main>
+    <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+        <!-- Price Column -->
+        <ng-container matColumnDef="price">
+          <mat-header-cell *matHeaderCellDef> Price </mat-header-cell>
+          <mat-cell *matCellDef="let order"> {{order.price}} </mat-cell>
+        </ng-container>
+      
+        <!-- Size Column -->
+        <ng-container matColumnDef="size">
+          <mat-header-cell *matHeaderCellDef> Size </mat-header-cell>
+          <mat-cell *matCellDef="let order"> {{order.size}} </mat-cell>
+        </ng-container>
+      
+        <!-- Total Column -->
+        <ng-container matColumnDef="total">
+          <mat-header-cell *matHeaderCellDef> Total </mat-header-cell>
+          <mat-cell *matCellDef="let order"> {{order.total}} </mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+</main>
+
+
+
+
