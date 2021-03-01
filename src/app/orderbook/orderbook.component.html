@@ -3,7 +3,7 @@
 </header>
 
 <main>
-    <mat-table [dataSource]="aksLevels | async | keyvalue | slice:-10" class="mat-elevation-z8">
+    <mat-table [dataSource]="asks$ | async | keyvalue | slice:-10" class="mat-elevation-z8">
         <!-- Price Column -->
         <ng-container matColumnDef="price">
           <mat-header-cell *matHeaderCellDef> Price </mat-header-cell>
@@ -26,7 +26,7 @@
         <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
     </mat-table>
 
-    <mat-table [dataSource]="bidLevels | async | keyvalue | slice:0:10" class="mat-elevation-z8">
+    <mat-table [dataSource]="bids$ | async | keyvalue | slice:0:10" class="mat-elevation-z8">
       <!-- Price Column -->
       <ng-container matColumnDef="price">
         <mat-header-cell *matHeaderCellDef> Price </mat-header-cell>
