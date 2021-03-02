@@ -4,4 +4,5 @@ export type Ask = Delta;
 export type Orders = { bids: Bid[]; asks: Ask[]; };
 export type OrderSize = number;
 export type OrderTotal = number;
-export type Orderbook = Map<number, { size: OrderSize; total: OrderTotal }>
+export type Orderbook = Map<number, { size: OrderSize; total: OrderTotal }>;
+export type DeltasToOrderbookMapper = (deltas: Delta[]) => Orderbook;

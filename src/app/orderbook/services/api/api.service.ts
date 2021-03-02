@@ -1,14 +1,13 @@
 import { Injectable } from '@angular/core';
 import { webSocket } from 'rxjs/webSocket';
-import { map } from 'rxjs/operators'
-import { BehaviorSubject, Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { Orders } from '../../models/models';
 
 @Injectable({
     providedIn: 'root',
 })
 export class ApiService {
-    private orders$: BehaviorSubject<Orders> = new BehaviorSubject({ bids: [], asks: [] } as Orders);
+    private orders$: Subject<any> = new Subject();
     
     constructor() {
         const wsSubject = webSocket<any>('wss://www.cryptofacilities.com/ws/v1');
@@ -19,12 +18,10 @@ export class ApiService {
             product_ids: ['PI_XBTUSD']
         });
 
-        wsSubject.pipe(
-            map(({ bids = [], asks = [] }: Orders): Orders => ({ bids, asks }))
-        ).subscribe((orders) => this.orders$.next(orders));
+        wsSubject.subscribe(this.orders$);
     }
 
-    getOrders$(): Observable<Orders> {
+    getMessages$(): Observable<any> {
         return this.orders$.asObservable();
     }
 }
