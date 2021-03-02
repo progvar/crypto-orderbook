@@ -5,57 +5,11 @@
 <main>
     <div class="table-container">
       <h2>Asks</h2>
-      <mat-table [dataSource]="asks$ | async | keyvalue | slice:0:10" class="mat-elevation-z8">
-          <!-- Price Column -->
-          <ng-container matColumnDef="price">
-            <mat-header-cell *matHeaderCellDef> Price </mat-header-cell>
-            <mat-cell *matCellDef="let order"> {{order?.key}} </mat-cell>
-          </ng-container>
-
-          <!-- Size Column -->
-          <ng-container matColumnDef="size">
-            <mat-header-cell *matHeaderCellDef> Size </mat-header-cell>
-            <mat-cell *matCellDef="let order"> {{order?.value?.size}} </mat-cell>
-          </ng-container>
-
-          <!-- Total Column -->
-          <ng-container matColumnDef="total">
-            <mat-header-cell *matHeaderCellDef> Total </mat-header-cell>
-            <mat-cell *matCellDef="let order"> {{order?.value?.total}} </mat-cell>
-          </ng-container>
-
-          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-          <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-      </mat-table>
+      <app-book [orders]="asks$ | async"></app-book>
     </div>
 
     <div class="table-container">
       <h2>Bids</h2>
-      <mat-table [dataSource]="bids$ | async | keyvalue | slice:-10" class="mat-elevation-z8">
-        <!-- Price Column -->
-        <ng-container matColumnDef="price">
-          <mat-header-cell *matHeaderCellDef> Price </mat-header-cell>
-          <mat-cell *matCellDef="let order"> {{order?.key}} </mat-cell>
-        </ng-container>
-
-        <!-- Size Column -->
-        <ng-container matColumnDef="size">
-          <mat-header-cell *matHeaderCellDef> Size </mat-header-cell>
-          <mat-cell *matCellDef="let order"> {{order?.value?.size}} </mat-cell>
-        </ng-container>
-
-        <!-- Total Column -->
-        <ng-container matColumnDef="total">
-          <mat-header-cell *matHeaderCellDef> Total </mat-header-cell>
-          <mat-cell *matCellDef="let order"> {{order?.value?.total}} </mat-cell>
-        </ng-container>
-
-        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-      </mat-table>
+      <app-book [orders]="bids$ | async"></app-book>
     </div>
 </main>
-
-
-
-

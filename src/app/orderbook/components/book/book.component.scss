@@ -1,0 +1,21 @@
+@import "~@angular/material/theming";
+
+:host {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+
+  mat-table {
+    height: 548px;
+    width: 75%;
+    min-width: 200px;
+    max-width: 400px;
+    background-color: mat-color(mat-palette($mat-grey, 900));
+
+    mat-header-cell,
+    mat-cell {
+      justify-content: center;
+      color: #ffffff;
+    }
+  }
+}
