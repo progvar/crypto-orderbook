@@ -1,7 +1,7 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Orderbook } from './models/models';
-import { OrderbookService } from './services/orderbook/orderbook.service';
+import { OrderbookService } from './orderbook.service';
 
 @Component({
   selector: 'app-orderbook',
