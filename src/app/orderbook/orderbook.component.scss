@@ -9,8 +9,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-shrink: 0;
     flex-basis: 10%;
-    flex-grow: 5;
     background-color: mat-color(mat-palette($mat-pink, 900));
     overflow: hidden;
   }
@@ -21,7 +21,7 @@
     align-items: center;
     justify-content: space-around;
     padding: 48px;
-    height: 100%;
+    flex-basis: 90%;
     position: relative;
     background-color: mat-color(mat-palette($mat-grey, 800));
 
@@ -31,20 +31,6 @@
       align-items: center;
       justify-content: center;
       width: 100%;
-
-      mat-table {
-        height: 548px;
-        width: 75%;
-        min-width: 200px;
-        max-width: 400px;
-        background-color: mat-color(mat-palette($mat-grey, 900));
-
-        mat-header-cell,
-        mat-cell {
-          justify-content: center;
-          color: #ffffff;
-        }
-      }
     }
 
     @media screen and (max-width: 1024px) {
